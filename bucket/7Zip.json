@@ -3,7 +3,7 @@
 	"description": "A multi-format file archiver with high compression ratios",
 	"homepage": "https://www.7-zip.org/",
 	"architecture": {
-		"64bit": {
+		"x64bit": {
 			"url": "https://www.7-zip.org/a/7z2408-x64.msi",
 			"type": "msi",
 			"hash": "98330e7e6db3507b444d576dc437a9ac4d82333a88a6bb6ef36a91fe3d85fa92"
