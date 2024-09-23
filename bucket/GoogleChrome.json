@@ -1,0 +1,13 @@
+{
+	"version": "129.0.6668.59",
+	"description": "A multi-format file archiver with high compression ratios",
+	"homepage": "https://google.com/",
+	"architecture": {
+		"x64bit": {
+			"url": "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BE1862727-00B1-FA38-FF9F-602DD35BB3E6%7D%26lang%3Dru%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-statsdef_1%26installdataindex%3Dempty/chrome/install/ChromeStandaloneSetup64.exe",
+			"type": "exe",
+			"argument": "/SILENT",
+			"hash": "98330e7e6db3507b444d576dc437a9ac4d82333a88a6bb6ef36a91fe3d85fa92"
+		}
+	}
+}
