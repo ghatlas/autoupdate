@@ -3,6 +3,9 @@ $NameArray = @()
 # Set URI for repo
 $URI='https://github.com/ghatlas/autoupdate/raw/refs/heads/main/'
 $URIDIR='bucket/'
+$OsqueryVersion = "5.13.1"
+$OsqueryName = "osquery-" + $OsqueryVersion + ".windows_x86_64"
+$OsqueryBin = "osquery\osqueryi.exe"
 
 Start-Process -FilePath "$AutoUPD$OsqueryBin" -ArgumentList '--json "SELECT install_date AS date, name AS name, version AS version FROM programs;"' -Wait -NoNewWindow -RedirectStandardOutput $AutoUPD\software_list.txt
 $PkgArray=Get-Content $AutoUPD\software_list.txt | ConvertFrom-Json
