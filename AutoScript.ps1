@@ -3,6 +3,8 @@ $NameArray = @()
 # Set URI for repo
 $URI='https://github.com/ghatlas/autoupdate/raw/refs/heads/main/'
 $URIDIR='bucket/'
+$AutoUPD = "C:\AutoUpdate\"
+$AutoCache = "Cache\"
 $OsqueryVersion = "5.13.1"
 $OsqueryName = "osquery-" + $OsqueryVersion + ".windows_x86_64"
 $OsqueryBin = "osquery\osqueryi.exe"
