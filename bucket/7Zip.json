@@ -1,5 +1,5 @@
 {
-	"version": "24.08",
+	"version": "24.08.0.0",
 	"description": "A multi-format file archiver with high compression ratios",
 	"homepage": "https://www.7-zip.org/",
 	"architecture": {
