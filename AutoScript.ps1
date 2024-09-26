@@ -76,7 +76,8 @@ Get-ChildItem -Path $AutoUPD$AutoCache -Name -Include *.json |
 					if ( $PkgJSON.architecture.x64bit.type -eq "msi" ) {
 						Start-Process "msiexec.exe" -ArgumentList "/I $AutoUPD$AutoCache$PkgName /q" -Wait -NoNewWindow
 					} else {
-						Start-Process "$AutoUPD$AutoCache$PkgName" -ArgumentList "/SILENT" -Wait -NoNewWindow
+						#Start-Process "$AutoUPD$AutoCache$PkgName" -ArgumentList "/SILENT" -Wait -NoNewWindow
+      						Start-Process "msiexec.exe" -ArgumentList "/I $AutoUPD$AutoCache$PkgName /q" -Wait -NoNewWindow
 					}
 				}
 				catch {
