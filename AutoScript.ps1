@@ -1,5 +1,7 @@
 $PkgArray = @()
 $NameArray = @()
+$AutoUPD = "C:\AutoUpdate\"
+$AutoCache = "Cache\"
 # Set URI for repo
 $URI='https://github.com/ghatlas/autoupdate/raw/refs/heads/main/'
 $URIDIR='bucket/'
