@@ -69,6 +69,7 @@ Get-ChildItem -Path $AutoUPD$AutoCache -Name -Include *.json |
 				catch {
 					Write-Host "Error install or update" $AutoUPD$AutoCache$PkgName
 				}
+    				Remove-Item $AutoUPD$AutoCache + "*" -Force -Recurse
 			}
 		}
 	}
