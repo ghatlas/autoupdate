@@ -3,15 +3,26 @@ $NameArray = @()
 # Set URI for repo
 $URI='https://github.com/ghatlas/autoupdate/raw/refs/heads/main/'
 $URIDIR='bucket/'
-$AutoUPD = "C:\AutoUpdate\"
-$AutoCache = "Cache\"
-$AutoScript = "AutoScript.ps1"
 $OsqueryVersion = "5.13.1"
 $OsqueryName = "osquery-" + $OsqueryVersion + ".windows_x86_64"
 $OsqueryBin = "osquery\osqueryi.exe"
+$OsQueryURI="https://github.com/osquery/osquery/releases/download/$OsqueryVersion/osquery-$OsqueryVersion.windows_x86_64.zip"
 
-try { 	Invoke-WebRequest -Uri $URI$AutoScript -OutFile $AutoUPD$AutoScript -ErrorAction Stop }
-catch { Write-Host "Invalid URI $URI$AutoScript for $AutoUPD$AutoScript" }
+if ( -not ( Test-Path -Path $AutoUPD ) ) {
+	New-Item -Path $AutoUPD -ItemType Directory
+	Write-Output "Folder $AutoUPD created successfully!"
+}
+
+if ( -not ( Test-Path -Path $AutoUPD$AutoCache ) ) {
+	New-Item -Path $AutoUPD$AutoCache -ItemType Directory
+	Write-Output "Folder $AutoUPD$AutoCache created successfully!"
+}
+
+if ( -not ( Test-Path -Path $AutoUPD$OsqueryBin ) ) {
+	Invoke-WebRequest -Uri $OsQueryURI -OutFile $AutoUPD$AutoCache$OsqueryName".zip"
+	Expand-Archive -Force $AutoUPD$AutoCache$OsqueryName".zip" $AutoUPD$AutoCache
+	Move-Item -Path $AutoUPD$AutoCache$OsqueryName"\Program Files\osquery" -Destination $AutoUPD
+}
 
 Start-Process -FilePath "$AutoUPD$OsqueryBin" -ArgumentList '--json "SELECT install_date AS date, name AS name, version AS version FROM programs;"' -Wait -NoNewWindow -RedirectStandardOutput $AutoUPD\software_list.txt
 $PkgArray=Get-Content $AutoUPD\software_list.txt | ConvertFrom-Json
