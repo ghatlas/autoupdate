@@ -6,7 +6,7 @@
 		"x64bit": {
 			"url": "https://github.com/pritunl/pritunl-client-electron/releases/download/1.3.4026.10/Pritunl.exe",
 			"type": "exe",
-			"argument": "/SILENT",
+			"argument": "/SILENT /FORCECLOSEAPPLICATIONS",
 			"hash": "c0a7c432fa5023100f6c59bb70cc098e356a0201472de341243cf9967456544f"
 		}
 	}
