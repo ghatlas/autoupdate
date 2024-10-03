@@ -63,6 +63,7 @@ Get-ChildItem -Path $AutoUPD$AutoCache -Name -Include *.json |
 		$PkgBaseName = [System.IO.Path]::GetFileNameWithoutExtension( "$PkgPath" )
 		$PkgName = $PkgBaseName + "-" + $PkgJSON.version + "." + $PkgJSON.architecture.x64bit.type
 		$PkgURI = $PkgJSON.architecture.x64bit.url
+  		$PkgArgument = $PkgJSON.architecture.x64bit.argument
 		Write-Host "Github repo:" $PkgBaseName " - " $PkgJSON.version
 		Foreach ( $Pkg in $PkgArray ) {
 			if ( $Pkg.Name -eq $PkgBaseName ) { Write-Host "Local install:" $Pkg.Name " - " $Pkg.Version }
@@ -76,8 +77,7 @@ Get-ChildItem -Path $AutoUPD$AutoCache -Name -Include *.json |
 					if ( $PkgJSON.architecture.x64bit.type -eq "msi" ) {
 						Start-Process "msiexec.exe" -ArgumentList "/I $AutoUPD$AutoCache$PkgName /q" -Wait -NoNewWindow
 					} else {
-						#Start-Process "$AutoUPD$AutoCache$PkgName" -ArgumentList "/SILENT" -Wait -NoNewWindow
-      						Start-Process "msiexec.exe" -ArgumentList "/I $AutoUPD$AutoCache$PkgName /q" -Wait -NoNewWindow
+						Start-Process "$AutoUPD$AutoCache$PkgName" -ArgumentList $PkgArgument -Wait -NoNewWindow
 					}
 				}
 				catch {
