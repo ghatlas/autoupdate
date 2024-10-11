@@ -1,6 +1,7 @@
 {
 	"version": "24.08.00.0",
 	"description": "A multi-format file archiver with high compression ratios",
+	"area": "white",
 	"homepage": "https://www.7-zip.org/",
 	"architecture": {
 		"x64bit": {
