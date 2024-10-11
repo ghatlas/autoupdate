@@ -1,7 +1,7 @@
 {
 	"version": "2.5.4594.1",
 	"description": "Advanced IP Scanner",
-	"area": "white",
+	"area": "black",
 	"homepage": "https://www.advanced-ip-scanner.com/",
 	"architecture": {
 		"x64bit": {
