@@ -1,6 +1,7 @@
 {
 	"version": "129.0.6668.71",
 	"description": "Modern browser from Google",
+	"area": "white",
 	"homepage": "https://google.com/",
 	"architecture": {
 		"x64bit": {
