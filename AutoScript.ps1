@@ -43,7 +43,6 @@ Foreach ( $Pkg in $PkgArray ) {
 			$json_file | Add-Member -MemberType NoteProperty -Name "origin_name" -Value $PkgOrigin
 			$json_file | ConvertTo-Json | Set-Content -Path $AutoUPD$AutoCache$PkgName".json"
 		} catch {}
-#		Write-Host $PkgOrigin" ******************** "$PkgName
 	}
 }
 
