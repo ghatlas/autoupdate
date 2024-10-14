@@ -60,21 +60,25 @@ Get-ChildItem -Path $AutoUPD$AutoCache -Name -Include *.json | Foreach-Object {
 			Write-Host "$PkgOriginName --- will be remove"
 			Uninstall-Package -Name "$PkgOriginName" -Force
 		}
-		elseif (( $Pkg.Name -eq $PkgBaseName ) -and ( $Pkg.Version -lt $PkgJSON.version )) {
-			Write-Host "New version (" $PkgJSON.version ") of package" $Pkg.Name "available"
-			try {
-				Invoke-WebRequest -Uri "$PkgURI" -OutFile "$AutoUPD$AutoCache$PkgName" -ErrorAction Stop
-			}
-			catch { Write-Host "Invalid URI $PkgURI for $PkgName" }
-			try {
-				if ( $PkgJSON.architecture.x64bit.type -eq "msi" ) {
-					Start-Process "msiexec.exe" -ArgumentList "/I $AutoUPD$AutoCache$PkgName /q" -Wait -NoNewWindow
-				} else {
-					Start-Process "$AutoUPD$AutoCache$PkgName" -ArgumentList "$PkgArguments" -Wait -NoNewWindow
+		elseif ( $Pkg.Name -eq $PkgBaseName ) {
+			$Pkg.Version = $Pkg.Version -replace "(\.)", ""
+			$PkgJSON.Version = $PkgJSON.Version -replace "(\.)", ""
+			if ( $Pkg.Version -lt $PkgJSON.Version ) {
+				Write-Host "New version (" $PkgJSON.version ") of package" $Pkg.Name "available"
+				try {
+					Invoke-WebRequest -Uri "$PkgURI" -OutFile "$AutoUPD$AutoCache$PkgName" -ErrorAction Stop
 				}
-			}
-			catch {
-				Write-Host "Error install or update" $AutoUPD$AutoCache$PkgName
+				catch { Write-Host "Invalid URI $PkgURI for $PkgName" }
+				try {
+					if ( $PkgJSON.architecture.x64bit.type -eq "msi" ) {
+						Start-Process "msiexec.exe" -ArgumentList "/I $AutoUPD$AutoCache$PkgName /q" -Wait -NoNewWindow
+					} else {
+						Start-Process "$AutoUPD$AutoCache$PkgName" -ArgumentList "$PkgArguments" -Wait -NoNewWindow
+					}
+				}
+				catch {
+					Write-Host "Error install or update" $AutoUPD$AutoCache$PkgName
+				}
 			}
 		}
 	}
