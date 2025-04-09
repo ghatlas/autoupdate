@@ -1,11 +1,11 @@
 {
-	"version": "1.3.4099.99",
+	"version": "1.3.4220.57",
 	"description": "pritun vpn client",
 	"area": "white",
 	"homepage": "https://client.pritunl.com/",
 	"architecture": {
 		"x64bit": {
-			"url": "https://github.com/pritunl/pritunl-client-electron/releases/download/1.3.4099.99/Pritunl.exe",
+			"url": "https://github.com/pritunl/pritunl-client-electron/releases/download/1.3.4220.57/Pritunl.exe",
 			"type": "exe",
 			"argument": "/SILENT /FORCECLOSEAPPLICATIONS",
 			"hash": "c0a7c432fa5023100f6c59bb70cc098e356a0201472de341243cf9967456544f"
