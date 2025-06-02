@@ -1,11 +1,11 @@
 {
-	"version": "24.08.00.0",
+	"version": "24.09.00.0",
 	"description": "A multi-format file archiver with high compression ratios",
 	"area": "white",
 	"homepage": "https://www.7-zip.org/",
 	"architecture": {
 		"x64bit": {
-			"url": "https://www.7-zip.org/a/7z2408-x64.msi",
+			"url": "https://www.7-zip.org/a/7z2409-x64.msi",
 			"type": "msi",
 			"argument": "",
 			"hash": "98330e7e6db3507b444d576dc437a9ac4d82333a88a6bb6ef36a91fe3d85fa92"
